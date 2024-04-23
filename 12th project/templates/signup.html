@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Vault</title>
+    <link rel="stylesheet" href="static/">
+</head>
+<body style="background-color:dimgrey;">
+    <h1>
+        SIGN UP NOW!
+    </h1>
+   <div class="signup"; style="background-color: burlywood; width:500px;height:300px;margin-left: 0380px;padding-left: 50px;">
+        
+        <div class="usename">
+            <h3>Username</h3>
+            <input id="username" type="text">
+        </div>
+        <div class="password">
+            <h3>Password</h3>
+            <input id="Password" type="password">
+        </div>
+        <input id="signup" type="submit" onclick = myfunction() style="margin-top: 20px;"> 
+        
+    </div>
+</body>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+function myfunction(){
+    const uname = document.getElementById("username").value;
+    const pw = document.getElementById("Password").value;
+    const dict_values = {uname,pw}
+    const s = JSON.stringify(dict_values);
+    console.log(s);
+    window.alert(s);
+    $.ajax({
+        url:"/test",
+        type:"POST",
+            contentType: "application/json",
+            data: JSON.stringify(s)
+            
+file_put_contents('test.txt', $json)
+        });
+
+}
+</script>
+</html>
